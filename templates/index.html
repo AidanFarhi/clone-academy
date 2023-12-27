@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clone Academy</title>
+    <title>htmx Todo List</title>
+    <!-- Include htmx from a CDN -->
+    <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.js"></script>
 </head>
 <body>
-    hello
+
+<h1>Todo List</h1>
+
+<ul>
+    {{range .}}
+    <li>
+        <span hx-get="/delete?id={{.ID}}" style="cursor: pointer;">[x]</span>
+        {{.Title}}
+    </li>
+    {{end}}
+</ul>
+
+<form hx-post="/add" hx-trigger="submit" autocomplete="off">
+    <label for="title">New Todo:</label>
+    <input type="text" id="title" name="title" required>
+    <button type="submit">Add</button>
+</form>
+
 </body>
 </html>
