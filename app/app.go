@@ -7,6 +7,7 @@ import (
 
 func setupHandlers() {
 	http.HandleFunc("/", handlers.IndexHandler)
+	http.HandleFunc("/courses", handlers.CoursesHandler)
 }
 
 func Run() {
