@@ -13,17 +13,6 @@ var pagesDirectory = "pages"
 var templateDirectory = "templates"
 var allTemplates *template.Template
 
-func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		m := validPath.FindStringSubmatch(r.URL.Path)
-		if m == nil {
-			http.NotFound(w, r)
-			return
-		}
-		fn(w, r, m[2])
-	}
-}
-
 func loadTemplates(templateDirectory string) (*template.Template, error) {
 	entries, err := os.ReadDir(templateDirectory)
 	if err != nil {
@@ -31,7 +20,7 @@ func loadTemplates(templateDirectory string) (*template.Template, error) {
 	}
 	templateFileNames := make([]string, 0)
 	for _, entry := range entries {
-		templateFileNames = append(templateFileNames, entry.Name())
+		templateFileNames = append(templateFileNames, templateDirectory+"/"+entry.Name())
 	}
 	templates, err := template.ParseFiles(templateFileNames...)
 	if err != nil {
@@ -45,6 +34,17 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
+	}
+}
+
+func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		m := validPath.FindStringSubmatch(r.URL.Path)
+		if m == nil {
+			http.NotFound(w, r)
+			return
+		}
+		fn(w, r, m[2])
 	}
 }
 
