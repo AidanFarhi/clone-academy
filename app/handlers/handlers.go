@@ -15,3 +15,10 @@ func CoursesHandler(w http.ResponseWriter, r *http.Request) {
 	courses := service.GetCourses()
 	tmpl.Execute(w, courses)
 }
+
+func StaticHandler() http.Handler {
+	staticBaseDir := "/static/"
+	fullPath := "app/web/static"
+	handler := http.StripPrefix(staticBaseDir, http.FileServer(http.Dir(fullPath)))
+	return handler
+}

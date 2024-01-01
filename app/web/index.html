@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clone Academy</title>
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
     <!-- Include htmx from a CDN -->
     <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
 </head>
 <body>
     <header id="header">
-        <p id="app-name">Clone Academy</p>
+        <div id="app-name-div">
+            <img id="logo" src="static/images/khan-academy-icon.png" alt="a logo">
+            <p id="app-name">
+                Clone Academy
+            </p>
+        </div>
         <p id="user-name">Aidan</p>
     </header>
     <div id="root" hx-trigger="load" hx-get="/courses"></div>

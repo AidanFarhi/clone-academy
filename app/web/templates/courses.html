@@ -1,7 +1,11 @@
 <div id="courses">
-    {{range .}}
-        <h4>{{.Title}}</h4>
-        <p>{{.Description}}</p>
-        <hr>
-    {{end}}
+    <div id="courses-banner">My Courses</div>
+    <div id="course-list">
+        {{range .}}
+            <h4>{{.Title}}</h4>
+            <p>{{.Description}}</p>
+            <hr>
+        {{end}}
+    </div>
+    
 </div>
