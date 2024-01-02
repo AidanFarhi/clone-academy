@@ -8,7 +8,7 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: minmax(50px, 5vh) 1fr;
     grid-template-columns: 12vw 1fr 12vw;
 }
 
@@ -44,5 +44,4 @@ header {
     grid-column: 1/4;
     grid-row: 2/3;
     border-top: 1px solid rgba(33,36,44,0.16);
-    overflow: scroll;
 }
