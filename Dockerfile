@@ -1,5 +1,11 @@
 FROM golang:1.20
-WORKDIR /app
-COPY . .
+WORKDIR /clone-academy
+COPY app/data app/data
+COPY app/handlers app/handlers
+COPY app/service app/service
+COPY app/app.go app/app.go
+COPY go.mod .
+COPY main.go .
 RUN go build main.go
+COPY app/web app/web
 CMD [ "./main" ]
