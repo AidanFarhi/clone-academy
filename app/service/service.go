@@ -3,30 +3,25 @@ package service
 type Course struct {
 	Title       string
 	Description string
+	Completion  string
 }
 
 func GetCourses() []*Course {
 	return []*Course{
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
-		{Title: "Algebra", Description: "Intro to Algebra"},
-		{Title: "Chemistry", Description: "How to make chemicals"},
-		{Title: "Python", Description: "A decent language"},
+		{
+			Title:       "7th Grade Math",
+			Description: "Intro to Algebra, Geometry, and others.",
+			Completion:  "89%",
+		},
+		{
+			Title:       "7th Grade English",
+			Description: "Essays, poetry, and other stuff.",
+			Completion:  "78.3%",
+		},
+		{
+			Title:       "7th Grade Biology",
+			Description: "Cells, photosynthesis, and others.",
+			Completion:  "96.4%",
+		},
 	}
 }

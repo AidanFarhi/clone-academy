@@ -1,10 +1,15 @@
 <div id="courses">
     <div id="courses-banner">My Courses</div>
     <div id="course-list">
-        {{range .}}
-            <h4>{{.Title}}</h4>
-            <p>{{.Description}}</p>
-            <hr>
+        {{range .}} 
+        <div class="course-item">
+            <img class="course-icon" src="../static/images/khan-academy-icon.png" alt="course icon">
+            <div class="course-details-container">
+                <p class="course-title">{{.Title}}</p>
+                <p class="course-description">{{.Description}}</p>
+                <p class="course-completion">{{.Completion}} Complete</p>
+            </div>
+        </div>
         {{end}}
     </div>
 </div>
