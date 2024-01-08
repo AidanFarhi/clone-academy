@@ -3,6 +3,7 @@ WORKDIR /clone-academy
 COPY go.mod .
 COPY go.sum .
 RUN go mod download
+COPY app/config app/config
 COPY app/repository app/repository
 COPY app/handlers app/handlers
 COPY app/service app/service
