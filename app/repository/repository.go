@@ -2,24 +2,23 @@ package repository
 
 import (
 	models "clone-academy/app/repository/models"
+	"database/sql"
+
+	_ "modernc.org/sqlite"
 )
 
 func GetCourses() []*models.Course {
-	return []*models.Course{
-		{
-			Title:       "7th Grade Math",
-			Description: "Intro to Algebra, Geometry, and others.",
-			Completion:  "89%",
-		},
-		{
-			Title:       "7th Grade English",
-			Description: "Essays, poetry, and other stuff.",
-			Completion:  "78.3%",
-		},
-		{
-			Title:       "7th Grade Biology",
-			Description: "Cells, photosynthesis, and others.",
-			Completion:  "96.4%",
-		},
+
+	allCourses := make([]*models.Course, 0)
+
+	conn, _ := sql.Open("sqlite", "./clone_academy.db")
+	rows, _ := conn.Query("select * from course")
+
+	for rows.Next() {
+		var course models.Course
+		rows.Scan(&course.Title, &course.Description, &course.Completion)
+		allCourses = append(allCourses, &course)
 	}
+
+	return allCourses
 }
