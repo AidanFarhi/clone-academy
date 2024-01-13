@@ -8,6 +8,8 @@ import (
 func setupHandlers() {
 	http.HandleFunc("/", handlers.IndexHandler)
 	http.HandleFunc("/courses", handlers.CoursesHandler)
+	http.HandleFunc("/add-course", handlers.AddCourseHandler)
+	http.HandleFunc("/add-course-page", handlers.AddCoursePageHandler)
 	http.Handle("/static/", handlers.StaticHandler())
 }
 

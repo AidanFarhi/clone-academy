@@ -16,6 +16,15 @@ func CoursesHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, courses)
 }
 
+func AddCourseHandler(w http.ResponseWriter, r *http.Request) {
+	service.AddCourse(&r.Form)
+	IndexHandler(w, r)
+}
+
+func AddCoursePageHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "app/web/templates/add_course.html")
+}
+
 func StaticHandler() http.Handler {
 	staticBaseDir := "/static/"
 	fullPath := "app/web/static"

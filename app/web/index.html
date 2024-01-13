@@ -17,7 +17,7 @@
                 Clone Academy
             </p>
         </div>
-        <href id="add-course-link">add course</href>
+        <p id="add-course-link" hx-get="/add-course-page" hx-target="#root">add course</p>
         <p id="user-name">Aidan</p>
     </header>
     <div id="root" hx-trigger="load" hx-get="/courses"></div>

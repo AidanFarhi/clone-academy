@@ -35,6 +35,15 @@ header {
     font-size: 20px;
 }
 
+#add-course-link {
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+#add-course-link:hover {
+    opacity: .75;
+}
+
 #user-name {
     color: #1865f2;
     font-size: 14px;
