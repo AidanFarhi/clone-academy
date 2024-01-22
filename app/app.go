@@ -1,6 +1,7 @@
 package app
 
 import (
+	"clone-academy/app/config"
 	"clone-academy/app/handlers"
 	"net/http"
 )
@@ -14,6 +15,7 @@ func setupHandlers() {
 }
 
 func Run() {
+	config.InitDatabase()
 	setupHandlers()
 	http.ListenAndServe(":8080", nil)
 }
